@@ -31,10 +31,13 @@
             let blob = event.target.result;
 
             // Write your code here
-             let fire = firebase.storage().ref('new_files');
+             let fire = firebase.storage().ref('new_files/'+file.name);
              fire.put(file)
              .then((snapshot) => {
                 console.log('File uploaded Successfully');
+            })
+            .catch(error => {
+                console.log(error);
             });
 
         });
